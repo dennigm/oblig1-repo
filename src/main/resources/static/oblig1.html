@@ -2,10 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="oblig1.js"></script>
+    <title>Oblig1</title>
+    <script type="text/javascript" src="oblig1.js"></script>
 </head>
 <body>
+<div>
+<h1>Bestilling Av Kinobilletter</h1>
+
+    <table>
+        <label for="film">Velg Film</label>
+        <select name="film" type="text" id="film">
+            <option value="Wonka">Wonka</option>
+            <option value="The Beekeeper">The Beekeeper</option>
+            <option value="Ender På Eventyr">Ender På Eventyr</option>
+            <option value="Konvoi">Konvoi</option>
+            <option value="Poor Things">Poor Things</option>
+            <option value="Dream Scenario">Dream Scenario</option>
+        </select>
+    </table>
+</div>
+
+<div>
+    <label for="antall">Antall</label>
+    <input name="antall" type="text" id="antall" style="width: 17px"/>
+    <label class="error" for="antall" id="errorAntall" style="color: firebrick"></label>
+</div>
+
+<table>
+
+    <tr>
+        <td>Fornavn</td>
+        <td><input type="text" id="fornavn"/></td>
+        <td><div id="errorFornavn" style="color: firebrick"></div></td>
+    </tr>
+
+    <tr>
+        <td>Etternavn</td>
+        <td><input type="text" id="etternavn"/></td>
+        <td><div id="errorEtternavn" style="color: firebrick"></div></td>
+    </tr>
+
+    <tr>
+        <td>TelefonNr</td>
+        <td><input type="text" id="telefonnr"/></td>
+        <td><div id="errorTelefonnr" style="color: firebrick"></div></td>
+    </tr>
+
+    <tr>
+        <td>E-Post</td>
+        <td><input type="text" id="epost"/></td>
+        <td><div id="errorEpost" style="color: firebrick"></div></td>
+    </tr>
+
+    <tr>
+        <td><button value="kjøpBillett" onclick="kjøp()">Kjøp Billett</button> </td>
+    </tr>
+
+</table>
+
+
+<h2>Alle Billetter</h2>
+<div id="visBilletter"></div>
+<button class="btn btn-danger" onclick="slettKunder()">Slett Alle Kunder</button>
 
 </body>
 </html>
