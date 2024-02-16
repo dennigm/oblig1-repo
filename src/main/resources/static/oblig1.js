@@ -12,29 +12,59 @@ function kjøp() {
 
     let errorAntall = 0;
 
-    if(input.antall == "") {
-        document.getElementById("errorAntall").innerHTML = "Feltet må fulles inn med et gyldig antall";
+    const regexAntall = /[1-9]{1,25}/;
+    let regexAntallCheck = regexAntall.test(input.antall);
+
+    const regexFornavn = /[A-Å]{1,25}/;
+    let regexFornavnCheck = regexFornavn.test(input.fornavn);
+
+    const regexEtternavn = /[A-Å]{1,25}/;
+    let regexEtternavnCheck = regexEtternavn.test(input.etternavn);
+
+    const regexTelefonnr = /[0-9]{8}/;
+    let regexTelefonnrCheck = regexTelefonnr.test(input.telefonnr);
+
+    const regexEpost = /[@.]/;
+    let regexEpostCheck = regexEpost.test(input.epost);
+
+    if(regexAntallCheck === false) {
+        document.getElementById("errorAntall").innerHTML = "Feltet må fylles inn med et gyldig antall";
         errorAntall++
     }
-
-    if(input.fornavn == "") {
-        document.getElementById("errorFornavn").innerHTML = "Feltet må fulles inn med et gyldig fornavn";
-        errorAntall++
+    else{
+        document.getElementById("errorAntall").innerHTML = " ";
     }
 
-    if(input.etternavn == "") {
-        document.getElementById("errorEtternavn").innerHTML = "Feltet må fulles inn med et gyldig etternavn";
+    if(regexFornavnCheck === false) {
+        document.getElementById("errorFornavn").innerHTML = "Feltet må fylles inn med et gyldig fornavn";
         errorAntall++
     }
-
-    if(input.telefonnr == "") {
-        document.getElementById("errorTelefonnr").innerHTML = "Feltet må fulles inn med et gyldig telefonnummer";
-        errorAntall++
+    else{
+        document.getElementById("errorAntall").innerHTML = " ";
     }
 
-    if(input.epost == "") {
-        document.getElementById("errorEpost").innerHTML = "Feltet må fulles inn med et gyldig epost";
+    if(regexEtternavnCheck === false) {
+        document.getElementById("errorEtternavn").innerHTML = "Feltet må fylles inn med et gyldig etternavn";
         errorAntall++
+    }
+    else{
+        document.getElementById("errorAntall").innerHTML = " ";
+    }
+
+    if(regexTelefonnrCheck === false) {
+        document.getElementById("errorTelefonnr").innerHTML = "Feltet må fylles inn med et gyldig telefonnummer (8 siffer)";
+        errorAntall++
+    }
+    else{
+        document.getElementById("errorAntall").innerHTML = " ";
+    }
+
+    if(regexEpostCheck === false) {
+        document.getElementById("errorEpost").innerHTML = "Feltet må fylles inn med en gyldig E-Post";
+        errorAntall++
+    }
+    else{
+        document.getElementById("errorAntall").innerHTML = " ";
     }
 
 
@@ -66,7 +96,7 @@ function  visBilletter(){
 }
 
 
-function slettKunder(){
+function slettBestillinger(){
     while(billetter.length>0) {
         billetter.pop()
     }
